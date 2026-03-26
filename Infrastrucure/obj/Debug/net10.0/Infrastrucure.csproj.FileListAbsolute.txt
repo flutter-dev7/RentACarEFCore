@@ -1,0 +1,15 @@
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\bin\Debug\net10.0\Infrastrucure.deps.json
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\bin\Debug\net10.0\Infrastrucure.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\bin\Debug\net10.0\Infrastrucure.pdb
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\bin\Debug\net10.0\Domain.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\bin\Debug\net10.0\Domain.pdb
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.csproj.AssemblyReference.cache
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.AssemblyInfoInputs.cache
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.AssemblyInfo.cs
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.csproj.CoreCompileInputs.cache
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastr.5B715DA1.Up2Date
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\refint\Infrastrucure.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.pdb
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\ref\Infrastrucure.dll
