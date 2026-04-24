@@ -13,3 +13,4 @@ C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastr
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\refint\Infrastrucure.dll
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.pdb
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\ref\Infrastrucure.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\Infrastrucure\obj\Debug\net10.0\Infrastrucure.sourcelink.json

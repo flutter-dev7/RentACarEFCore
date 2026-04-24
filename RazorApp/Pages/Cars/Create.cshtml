@@ -1,0 +1,25 @@
+﻿@page "/Cars/Create"
+@model CreateModel
+
+<h2>Создать машину</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Модель</label>
+        <input asp-for="Car.Model" class="form-control" />
+        <span asp-validation-for="Car.Model" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Цена за день</label>
+        <input asp-for="Car.PricePerDay" class="form-control" />
+        <span asp-validation-for="Car.PricePerDay" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="Car.IsAvialable" class="form-check-input" />
+        <label class="form-check-label">Доступна</label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Создать</button>
+</form>

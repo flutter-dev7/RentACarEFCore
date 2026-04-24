@@ -1,0 +1,46 @@
+﻿@page "/Cars"
+@model CarsModel
+
+@{
+    ViewData["Title"] = "Машины";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="m-0">Список машин</h2>
+
+    <a href="/Cars/Create" class="btn btn-primary">
+        + Create
+    </a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Модель</th>
+            <th>Цена/день</th>
+            <th>Доступна</th>
+            <th>Бронирований</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.Cars)
+        {
+            <tr>
+                <td>@car.Id</td>
+                <td>@car.Model</td>
+                <td>@car.PricePerDay c.</td>
+                <td>@(car.IsAvialable ? "Да" : "Нет")</td>
+                <td>@car.BookingCount</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@car.Id
+                        ">
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
