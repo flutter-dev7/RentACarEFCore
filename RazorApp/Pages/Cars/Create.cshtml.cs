@@ -17,10 +17,6 @@ public class CreateModel : PageModel
     [BindProperty]
     public CreateCarDto Car { get; set; } = new();
 
-    public void OnGet()
-    {
-    }
-
     public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)

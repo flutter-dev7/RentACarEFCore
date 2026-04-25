@@ -1,0 +1,23 @@
+﻿@page "/Cars/Edit/{id:int}"
+@model RazorApp.Pages.Cars.EditModel
+
+<h2>Редактировать машину</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Модель</label>
+        <input asp-for="Car.Model" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Цена за день</label>
+        <input asp-for="Car.PricePerDay" class="form-control" />
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="Car.IsAvialable" class="form-check-input" />
+        <label class="form-check-label">Доступна</label>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Сохранить</button>
+</form>
