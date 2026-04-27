@@ -7,4 +7,5 @@ public class GetCarDto
     public decimal PricePerDay { get; set; }
     public bool IsAvialable { get; set; } = true;
     public int BookingCount { get; set; }
+    public string? ImagePath { get; set; }
 }

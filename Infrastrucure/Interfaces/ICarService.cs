@@ -6,7 +6,7 @@ public interface ICarService
 {
     Task<IEnumerable<GetCarDto>> GetAllCarsAsync();
     Task<GetCarDto?> GetCarByIdAsync(int id);
-    Task<bool> CreateCarAsync(CreateCarDto request);
+    Task<bool> CreateCarAsync(CreateCarDto request, string? imagePath);
     Task<bool> UpdateCarAsync(int id, UpdateCarDto request);
     Task<bool> DeleteCarAsync(int id);
 }

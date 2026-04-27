@@ -1,48 +1,76 @@
 ﻿@using Domain.DTOs.Cars
 @model List<GetCarDto>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h2 class="m-0">Список машин</h2>
+<div style="max-width: 1100px; margin: 2rem auto; padding: 0 1rem;">
 
-    <a href="/Cars/Create" class="btn btn-primary">
-        + Создать машину
-    </a>
-</div>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <div>
+            <h2 style="font-size: 22px; font-weight: 600; margin: 0;">Автомобили</h2>
+            <p style="font-size: 13px; color: #6b7280; margin: 4px 0 0;">@Model.Count авт. в базе</p>
+        </div>
+        <a href="/Cars/Create" style="padding: 9px 18px; background: #111827; color: white; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500;">
+            + Добавить
+        </a>
+    </div>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Модель</th>
-            <th>Цена/день</th>
-            <th>Доступна</th>
-            <th>Бронирований</th>
-            <th>Действия</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
         @foreach (var car in Model)
         {
-            <tr>
-                <td>@car.Id</td>
-                <td>@car.Model</td>
-                <td>@car.PricePerDay c.</td>
-                <td>@(car.IsAvialable ? "Да" : "Нет")</td>
-                <td>@car.BookingCount</td>
-                <td>
-                    <div class="d-flex gap-2">
-                        <a href="/Cars/Edit/@car.Id" class="btn btn-warning btn-sm">
-                            Edit
-                        </a>
+            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
 
-                        <form method="post" asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id">
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Удалить?')">
-                                Delete
+                @if (!string.IsNullOrEmpty(car.ImagePath))
+                {
+                    <img src="@car.ImagePath" alt="@car.Model"
+                         style="width: 100%; height: 180px; object-fit: cover;" />
+                }
+                else
+                {
+                    <div style="width: 100%; height: 180px; background: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                        <svg width="48" height="48" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h10l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2h-2m-7 0h4m-6 0a1 1 0 102 0m2 0a1 1 0 102 0"/>
+                            <circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/>
+                        </svg>
+                    </div>
+                }
+
+                <div style="padding: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                        <p style="font-size: 15px; font-weight: 600; margin: 0; color: #111827;">@car.Model</p>
+                        @if (car.IsAvialable)
+                        {
+                            <span style="font-size: 11px; padding: 2px 8px; background: #dcfce7; color: #16a34a; border-radius: 20px; font-weight: 500;">Доступна</span>
+                        }
+                        else
+                        {
+                            <span style="font-size: 11px; padding: 2px 8px; background: #fee2e2; color: #dc2626; border-radius: 20px; font-weight: 500;">Занята</span>
+                        }
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 14px;">
+                        <div>
+                            <p style="font-size: 11px; color: #9ca3af; margin: 0;">Цена/день</p>
+                            <p style="font-size: 15px; font-weight: 600; color: #111827; margin: 0;">@car.PricePerDay c</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 11px; color: #9ca3af; margin: 0;">Бронирований</p>
+                            <p style="font-size: 15px; font-weight: 600; color: #111827; margin: 0;">@car.BookingCount</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 8px;">
+                        <a href="/Cars/Edit/@car.Id"
+                           style="flex: 1; padding: 8px; text-align: center; font-size: 13px; font-weight: 500; background: #f3f4f6; color: #374151; border-radius: 8px; text-decoration: none;">
+                            Изменить
+                        </a>
+                        <form method="post" asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id" style="flex: 1;">
+                            <button type="submit" onclick="return confirm('Удалить @car.Model?')"
+                                    style="width: 100%; padding: 8px; font-size: 13px; font-weight: 500; background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; cursor: pointer;">
+                                Удалить
                             </button>
                         </form>
                     </div>
-                </td>
-            </tr>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>

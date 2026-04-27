@@ -36,13 +36,13 @@ public class CarController : ControllerBase
         return Ok(car);
     } 
 
-    [HttpPost]
-    public async Task<IActionResult> CreateAsync(CreateCarDto request)
-    {
-        var res = await _service.CreateCarAsync(request);
+    // [HttpPost]
+    // public async Task<IActionResult> CreateAsync(CreateCarDto request)
+    // {
+    //     var res = await _service.CreateCarAsync(request);
 
-        return Created("Car created successfully", res);
-    }
+    //     return Created("Car created successfully", res);
+    // }
 
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateAsync(int id, UpdateCarDto request)

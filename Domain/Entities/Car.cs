@@ -16,6 +16,8 @@ public class Car
     public decimal PricePerDay { get; set; }
 
     public bool IsAvialable { get; set; } = true;
+    public string? ImagePath { get; set; }
+
 
     // navigation property
     public ICollection<Booking> Bookings { get; set; } = new List<Booking>();

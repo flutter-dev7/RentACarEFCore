@@ -24,7 +24,8 @@ public class CarService : ICarService
             Model = c.Model,
             PricePerDay = c.PricePerDay,
             IsAvialable = c.IsAvialable,
-            BookingCount = c.Bookings.Count
+            BookingCount = c.Bookings.Count,
+            ImagePath = c.ImagePath
         }).ToListAsync();
 
         return cars;
@@ -47,13 +48,14 @@ public class CarService : ICarService
             Model = car.Model,
             PricePerDay = car.PricePerDay,
             IsAvialable = car.IsAvialable,
-            BookingCount = car.Bookings.Count
+            BookingCount = car.Bookings.Count,
+            ImagePath = car.ImagePath
         };
     }
 
-    
 
-    public async Task<bool> CreateCarAsync(CreateCarDto request)
+
+    public async Task<bool> CreateCarAsync(CreateCarDto request, string? imagePath)
     {
         try
         {
@@ -61,7 +63,8 @@ public class CarService : ICarService
             {
                 Model = request.Model,
                 PricePerDay = request.PricePerDay,
-                IsAvialable = request.IsAvialable
+                IsAvialable = request.IsAvialable,
+                ImagePath = imagePath
             };
 
             _context.Cars.Add(car);
@@ -82,7 +85,7 @@ public class CarService : ICarService
         {
             var car = await _context.Cars.FindAsync(id);
 
-            if(car == null)
+            if (car == null)
             {
                 return false;
             }
@@ -107,7 +110,7 @@ public class CarService : ICarService
         {
             var car = await _context.Cars.FindAsync(id);
 
-            if(car == null)
+            if (car == null)
             {
                 return false;
             }

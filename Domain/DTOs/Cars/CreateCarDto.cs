@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Domain.DTOs.Cars;
 
@@ -13,4 +14,5 @@ public class CreateCarDto
     public decimal PricePerDay { get; set; }
 
     public bool IsAvialable { get; set; } = true;
+    public IFormFile? Image { get; set; }
 }

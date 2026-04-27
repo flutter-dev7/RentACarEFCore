@@ -26,11 +26,39 @@ namespace MvcApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateCarDto dto)
         {
-            var viewModel = await carService.CreateCarAsync(dto);
             if (!ModelState.IsValid)
             {
-                return View(viewModel);
+                var errors = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage);
+                return View(dto);
             }
+
+            string? imagePath = null;
+
+            if (dto.Image != null && dto.Image.Length > 0)
+            {
+                var fileName = Guid.NewGuid() + Path.GetExtension(dto.Image.FileName);
+
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                var fullPath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await dto.Image.CopyToAsync(stream);
+                }
+
+                imagePath = "/images/" + fileName;
+            }
+
+            await carService.CreateCarAsync(dto, imagePath);
+
             return RedirectToAction("Index");
         }
 
