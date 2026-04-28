@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\Cars\" />
   </ItemGroup>
 

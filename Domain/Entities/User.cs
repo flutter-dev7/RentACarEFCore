@@ -11,6 +11,12 @@ public class User
     [MaxLength(50)]
     public string Username { get; set; } = string.Empty;
 
+    public string PasswordHash { get; set; } = null!; // Пароли нельзя хранить в открытом виде!
+
+    [Required]
+    [MaxLength(50)]
+    public string Role { get; set; } = "User"; // Например: Admin, User
+
     [Required]
     [EmailAddress]
     [MaxLength(100)]

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MvcApp</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body style="background-color: #f5f7fb;">
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <aside class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar-container">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-4 text-white min-vh-100">
+                    
+                    <a href="/"
+                           class="d-flex align-items-center pb-5 mb-md-0 me-md-auto text-decoration-none logo-text">
+                        <i class="bi bi-nut-fill me-2" style="font-size: 1.5rem;"></i>
+                        <span class="fs-4 d-none d-sm-inline">Dashboard <small
+                            style="font-size: 10px; color: #9197b3;">v.01</small></span>
+                        </a>
+
+                        <ul class="nav nav-pills flex-column mb-auto w-100" id="menu">
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Index"
+                                       class="nav-link align-middle px-3 @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                                    <i class="bi bi-speedometer2"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Cars" asp-action="Index"
+                                       class="nav-link px-3 align-middle @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Cars" ? "active" : "")">
+                                    <i class="bi bi-car-front"></i> <span class="ms-1 d-none d-sm-inline">Cars
+                                    Catalog</span>
+                                    <i class="bi bi-chevron-right float-end d-none d-sm-inline mt-1"
+                                       style="font-size: 12px;"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Users" asp-action="Index"
+                                       class="nav-link px-3 align-middle @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Users" ? "active" : "")">
+                                    <i class="bi bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span>
+                                    <i class="bi bi-chevron-right float-end d-none d-sm-inline mt-1"
+                                       style="font-size: 12px;"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="Bookings" asp-action="Index"
+                                       class="nav-link px-3 align-middle @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Bookings" ? "active" : "")">
+                                    <i class="bi bi-calendar-check"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Bookings</span>
+                                    <i class="bi bi-chevron-right float-end d-none d-sm-inline mt-1"
+                                       style="font-size: 12px;"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link px-3 align-middle">
+                                    <i class="bi bi-graph-up-arrow"></i> <span
+                                    class="ms-1 d-none d-sm-inline">Reports</span>
+                                    <i class="bi bi-chevron-right float-end d-none d-sm-inline mt-1"
+                                       style="font-size: 12px;"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link px-3 align-middle">
+                                    <i class="bi bi-gear"></i> <span class="ms-1 d-none d-sm-inline">Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="upgrade-card mb-4 d-none d-sm-block">
+                            <p class="mb-2">Upgrade to PRO to get access all Features!</p>
+                            <button class="btn btn-light w-100 rounded-pill py-1">Get Pro Now!</button>
+                        </div>
+
+                        <hr class="w-100" style="color: #eee;">
+                        <div class="dropdown pb-4 w-100">
+                            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle user-link"
+                                   id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40"
+                                     class="rounded-circle">
+                                <div class="ms-2 d-none d-sm-inline">
+                                    <div class="fw-bold" style="font-size: 14px; color: #000;">Evano</div>
+                                    <div class="text-muted" style="font-size: 12px;">Project Manager</div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="col p-4">
+                    <div class="p-2">
+                        @RenderBody()
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+
+</html>

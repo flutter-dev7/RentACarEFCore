@@ -1,70 +1,71 @@
 ﻿@using Domain.DTOs.Cars
 @model List<GetCarDto>
 
-<div style="max-width: 1100px; margin: 2rem auto; padding: 0 1rem;">
-
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+<div class="main-content-wrapper">
+    <div class="d-flex justify-content-between align-items-center mb-5">
         <div>
-            <h2 style="font-size: 22px; font-weight: 600; margin: 0;">Автомобили</h2>
-            <p style="font-size: 13px; color: #6b7280; margin: 4px 0 0;">@Model.Count авт. в базе</p>
+            <h2 style="font-weight: 700; color: #000; margin: 0; font-size: 28px;">Автомобили</h2>
+            <p style="color: #9197b3; font-size: 14px; margin-top: 5px;">@Model.Count авт. в базе</p>
         </div>
-        <a href="/Cars/Create" style="padding: 9px 18px; background: #111827; color: white; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500;">
-            + Добавить
-        </a>
+        <button type="button" class="btn-dark-custom shadow-sm" data-bs-toggle="modal" data-bs-target="#createCarModal">
+            <span style="font-size: 18px; margin-right: 8px;">+</span> Добавить
+        </button>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+    <div class="cars-grid">
         @foreach (var car in Model)
         {
-            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
-
+            <div class="car-card">
                 @if (!string.IsNullOrEmpty(car.ImagePath))
                 {
-                    <img src="@car.ImagePath" alt="@car.Model"
-                         style="width: 100%; height: 180px; object-fit: cover;" />
+                    <img src="@car.ImagePath" class="car-card-img" alt="@car.Model">
                 }
                 else
                 {
-                    <div style="width: 100%; height: 180px; background: #f3f4f6; display: flex; align-items: center; justify-content: center;">
-                        <svg width="48" height="48" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <path d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h10l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2h-2m-7 0h4m-6 0a1 1 0 102 0m2 0a1 1 0 102 0"/>
-                            <circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/>
-                        </svg>
+                    <div style="height: 200px; background: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-car-front" style="font-size: 3rem; color: #d1d5db;"></i>
                     </div>
                 }
 
-                <div style="padding: 1rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                        <p style="font-size: 15px; font-weight: 600; margin: 0; color: #111827;">@car.Model</p>
+                <div class="car-card-body" style="padding: 24px;">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 style="margin: 0; font-weight: 700; font-size: 20px; color: #111827;">@car.Model</h5>
                         @if (car.IsAvialable)
                         {
-                            <span style="font-size: 11px; padding: 2px 8px; background: #dcfce7; color: #16a34a; border-radius: 20px; font-weight: 500;">Доступна</span>
+                            <span class="badge-available">Доступна</span>
                         }
                         else
                         {
-                            <span style="font-size: 11px; padding: 2px 8px; background: #fee2e2; color: #dc2626; border-radius: 20px; font-weight: 500;">Занята</span>
+                            <span class="badge-busy">Занята</span>
                         }
                     </div>
 
-                    <div style="display: flex; gap: 1rem; margin-bottom: 14px;">
+                    <div class="d-flex gap-5 mb-4">
                         <div>
-                            <p style="font-size: 11px; color: #9ca3af; margin: 0;">Цена/день</p>
-                            <p style="font-size: 15px; font-weight: 600; color: #111827; margin: 0;">@car.PricePerDay c</p>
+                            <p style="font-size: 11px; color: #9197b3; margin: 0; text-transform: uppercase; font-weight: 600;">Цена/день</p>
+                            <p style="font-weight: 700; font-size: 17px; margin: 0; color: #111827;">@car.PricePerDay <small>c</small></p>
                         </div>
                         <div>
-                            <p style="font-size: 11px; color: #9ca3af; margin: 0;">Бронирований</p>
-                            <p style="font-size: 15px; font-weight: 600; color: #111827; margin: 0;">@car.BookingCount</p>
+                            <p style="font-size: 11px; color: #9197b3; margin: 0; text-transform: uppercase; font-weight: 600;">Бронирований</p>
+                            <p style="font-weight: 700; font-size: 17px; margin: 0; color: #111827;">@car.BookingCount</p>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 8px;">
-                        <a href="/Cars/Edit/@car.Id"
-                           style="flex: 1; padding: 8px; text-align: center; font-size: 13px; font-weight: 500; background: #f3f4f6; color: #374151; border-radius: 8px; text-decoration: none;">
+                    <div class="d-flex gap-2">
+                        @* Кнопка теперь передает данные через data-атрибуты *@
+                        <button type="button" 
+                                class="btn-edit-custom" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#editCarModal"
+                                data-id="@car.Id"
+                                data-model="@car.Model"
+                                data-price="@car.PricePerDay"
+                                data-available="@car.IsAvialable.ToString().ToLower()">
                             Изменить
-                        </a>
-                        <form method="post" asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id" style="flex: 1;">
-                            <button type="submit" onclick="return confirm('Удалить @car.Model?')"
-                                    style="width: 100%; padding: 8px; font-size: 13px; font-weight: 500; background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; cursor: pointer;">
+                        </button>
+                        
+                        <form asp-controller="Cars" asp-action="Delete" asp-route-id="@car.Id" method="post" style="flex: 1; margin: 0;">
+                            <button type="submit" class="btn-delete-custom w-100" onclick="return confirm('Удалить этот автомобиль?')">
                                 Удалить
                             </button>
                         </form>
@@ -74,3 +75,95 @@
         }
     </div>
 </div>
+
+@* --- МОДАЛЬНОЕ ОКНО СОЗДАНИЯ --- *@
+<div class="modal fade" id="createCarModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 24px; border: none; overflow: hidden;">
+            <div class="modal-header" style="border-bottom: 1px solid #f0f0f0; padding: 24px;">
+                <h5 class="modal-title" style="font-weight: 700; color: #111827;">Создать машину</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="padding: 24px;">
+                <form asp-controller="Cars" asp-action="Create" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase" style="font-weight: 600;">Модель</label>
+                        <input name="Model" class="form-control custom-input" placeholder="Введите модель" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase" style="font-weight: 600;">Цена за день</label>
+                        <input name="PricePerDay" type="number" step="0.01" class="form-control custom-input" placeholder="0.00" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase" style="font-weight: 600;">Фото машины</label>
+                        <input name="Image" type="file" class="form-control custom-input" />
+                    </div>
+                    <div class="form-check form-switch mb-4">
+                        <input name="IsAvialable" class="form-check-input custom-switch" type="checkbox" id="isAvailable" checked value="true">
+                        <label class="form-check-label ms-2" for="isAvailable" style="color: #4b5563;">Доступна сейчас</label>
+                    </div>
+                    <button type="submit" class="btn-dark-custom w-100" style="justify-content: center; padding: 14px;">Создать автомобиль</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* --- МОДАЛЬНОЕ ОКНО ИЗМЕНЕНИЯ --- *@
+<div class="modal fade" id="editCarModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 24px; border: none; overflow: hidden;">
+            <div class="modal-header" style="border-bottom: 1px solid #f0f0f0; padding: 24px;">
+                <h5 class="modal-title" style="font-weight: 700; color: #111827;">Изменить данные</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="padding: 24px;">
+                <form asp-controller="Cars" asp-action="Edit" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="Id" id="edit-id" />
+                    
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase" style="font-weight: 600;">Модель</label>
+                        <input name="Model" id="edit-model" class="form-control custom-input" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase" style="font-weight: 600;">Цена за день</label>
+                        <input name="PricePerDay" id="edit-price" type="number" step="0.01" class="form-control custom-input" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase" style="font-weight: 600;">Изменить фото (необязательно)</label>
+                        <input name="Image" type="file" class="form-control custom-input" />
+                    </div>
+                    <div class="form-check form-switch mb-4">
+                        <input name="IsAvialable" class="form-check-input custom-switch" type="checkbox" id="edit-available" value="true">
+                        <label class="form-check-label ms-2" for="edit-available" style="color: #4b5563;">Доступна</label>
+                    </div>
+                    <button type="submit" class="btn-dark-custom w-100" style="justify-content: center; padding: 14px;">Сохранить изменения</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Скрипт для заполнения полей модалки "Изменить" при открытии
+        const editModal = document.getElementById('editCarModal');
+        editModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget; // Кнопка, на которую нажали
+            
+            // Получаем данные из data-атрибутов
+            const id = button.getAttribute('data-id');
+            const model = button.getAttribute('data-model');
+            const price = button.getAttribute('data-price').replace(',', '.'); // заменяем запятую на точку для input number
+            const available = button.getAttribute('data-available') === 'true';
+
+            // Заполняем поля в модальном окне
+            editModal.querySelector('#edit-id').value = id;
+            editModal.querySelector('#edit-model').value = model;
+            editModal.querySelector('#edit-price').value = price;
+            editModal.querySelector('#edit-available').checked = available;
+        });
+    </script>
+}

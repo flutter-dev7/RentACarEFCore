@@ -32,7 +32,6 @@ C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\o
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\scopedcss\bundle\MvcApp.styles.css
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\scopedcss\projectbundle\MvcApp.bundle.scp.css
-C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\compressed\l1rdbf12dl-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\compressed\l187bkidoe-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\compressed\tdfhvfmkuh-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\compressed\t4pvvr5gk8-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -191,3 +190,13 @@ C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\b
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\obj\Debug\net10.0\compressed\l1rdbf12dl-{0}-q8mmhdl2z0-q8mmhdl2z0.gz
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Ismoil\OneDrive\Desktop\Programming\.Net\month1\week3\RentACar\MvcApp\bin\Debug\net10.0\BCrypt.Net-Next.dll

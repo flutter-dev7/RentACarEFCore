@@ -1,12 +1,14 @@
 using Domain.DTOs.Cars;
 using Domain.Entities;
 using Infrastrucure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MvcApp.ViewModels;
 
 namespace MvcApp.Controllers
 {
+    [Authorize]
     public class CarsController(ICarService carService) : Controller
     {
         [HttpGet]
